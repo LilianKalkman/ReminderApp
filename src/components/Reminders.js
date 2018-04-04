@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Reminders extends Component {
 
   render(){
-    const reminders = this.props.reminders.map( reminder => <li className="list-group-item">{reminder}</li>);
+    const reminders = this.props.reminders.map((reminder, index) => <li key={index} className="list-group-item">{reminder}</li>);
     return (
       <div className="reminders">
         <ul>
