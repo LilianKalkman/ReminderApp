@@ -15,7 +15,7 @@ class Reminders extends Component {
         </li>
       )});
     return (
-        <ul className="list-group col-sm-4">
+        <ul className="list-group">
           {reminders}
         </ul>
     )
