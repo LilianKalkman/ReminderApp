@@ -1,5 +1,25 @@
 body {
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 20px;
   font-family: sans-serif;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 20px;
+}
+
+.title {
+  text-align: center;
+  font-size: 30px;
+}
+
+input {
+  margin: 5px;
+}
+
+.reminder-form {
+  text-align: center;
 }

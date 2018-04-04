@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import { addReminder } from './actions/index';
 import { connect } from 'react-redux';
 import Reminders from './components/Reminders';
@@ -16,13 +15,14 @@ class App extends Component {
           Reminder Pro
         </div>
         <Reminders />
-        <div className="form-inline">
+        <div className="form-inline reminder-form">
           <div className="form-group">
             <input
               type="text"
               className="form-control"
               placeholder="I have to ... "
-              onChange={(event) => this.setState({input: event.target.value})}/>
+              onChange={(event) => this.setState({input: event.target.value})}
+              />
           </div>
           <button
             className="btn btn-success"
