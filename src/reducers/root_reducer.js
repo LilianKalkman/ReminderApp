@@ -1,4 +1,4 @@
-import { ADD_REMINDER } from '../actions/actionTypes';
+import { ADD_REMINDER, REMOVE_REMINDER } from '../actions/actionTypes';
 
 const initialState = {
   reminders: []
@@ -11,8 +11,15 @@ const Reminder = (state = initialState, action) => {
       const updatedReminders = reminders.concat(action.payload);
       return {
         ...state,
-        reminders: updatedReminders
+        reminders: updatedReminders,
       };
+    case REMOVE_REMINDER :
+      const reminders2 = [...state.reminders];
+      const newReminders = reminders2.filter( reminder => reminder !== action.payload );
+      return {
+        ...state,
+        reminders: newReminders
+      }
     default:
       return state;
   }
