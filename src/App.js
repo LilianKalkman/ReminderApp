@@ -5,7 +5,8 @@ import Reminders from './components/Reminders';
 
 class App extends Component {
   state = {
-    input: ''
+    input: '',
+    dueDate: ''
   }
 
   render() {
@@ -23,10 +24,14 @@ class App extends Component {
               placeholder="I have to ... "
               onChange={(event) => this.setState({input: event.target.value})}
               />
+            <input
+              type="datetime-local"
+              className="form-control"
+              onChange={(event) => this.setState({dueDate: event.target.value})}/>
           </div>
           <button
             className="btn btn-success"
-            onClick={() => this.props.add(this.state.input)}>Add Reminder</button>
+            onClick={() => this.props.add(this.state.input, this.state.dueDate)}>Add Reminder</button>
         </div>
       </div>
     );
@@ -41,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    add: (task => dispatch(addReminder(task)))
+    add: (task, date) => dispatch(addReminder(task, date))
   }
 }
 

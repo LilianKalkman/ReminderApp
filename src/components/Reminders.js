@@ -5,19 +5,22 @@ import { removeReminder } from '../actions/index';
 class Reminders extends Component {
 
   render(){
-    const reminders = this.props.reminders.map( reminder => {
+    const reminders = Object.keys(this.props.reminders).map( key => {
+      const reminder = this.props.reminders[key];
       return (
-        <li key={reminder} className="list-group-item">
-          <div className="list-item">{reminder}</div>
+        <li key={reminder.id} className="list-group-item">
+          <div className="list-item">{reminder.text}</div>
           <div
             onClick={() => this.props.remove(reminder)}
             className="list-item delete-button">&times;</div>
         </li>
       )});
     return (
+      <div className="reminders-list">
         <ul className="list-group">
           {reminders}
         </ul>
+      </div>
     )
   }
 }

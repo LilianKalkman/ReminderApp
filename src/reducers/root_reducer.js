@@ -7,12 +7,15 @@ const initialState = {
 const Reminder = (state = initialState, action) => {
   switch(action.type){
     case ADD_REMINDER :
-      const reminders = [...state.reminders];
-      const updatedReminders = reminders.concat(action.payload);
+      // const reminders = [...state.reminders];
+      // const updatedReminders = reminders.concat(action.payload);
       return {
         ...state,
-        reminders: updatedReminders,
-      };
+        reminders: state.reminders.concat({
+          id: Math.random(),
+          text: action.payload,
+          duedate: action.duedate
+      })};
     case REMOVE_REMINDER :
       const reminders2 = [...state.reminders];
       const newReminders = reminders2.filter( reminder => reminder !== action.payload );
