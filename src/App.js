@@ -10,6 +10,11 @@ class App extends Component {
   }
 
   render() {
+    // const currentDate = Date.now();
+    // console.log(currentDate, this.state.dueDate);
+    // if(currentDate >= this.props.reminders.duedate){
+    //   window.alert('Reminder!!!');
+    // }
     return (
       <div className="App">
         <div className="title">
