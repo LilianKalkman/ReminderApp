@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { removeReminder } from '../actions/index';
 import moment from 'moment';
+import './Reminders.css';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 class Reminders extends Component {
 
@@ -9,24 +12,31 @@ class Reminders extends Component {
     const reminders = Object.keys(this.props.reminders).map( key => {
       const reminder = this.props.reminders[key];
       return (
-        <li key={reminder.id} className="list-group-item">
-          <div className="list-item">
-            <div>{reminder.text}</div>
-            <div><em>{moment(new Date(reminder.duedate)).fromNow()}</em></div>
-          </div>
-          <div
-            className="list-item delete-button"
-            onClick={() => this.props.remove(reminder)}
-            >
-            &times;
-          </div>
-        </li>
+        <CSSTransition
+          key={reminder.id}
+          timeout={500}
+          classNames="fade">
+          <li className="list-group-item">
+            <div className="list-item">
+              <div>{reminder.text}</div>
+              <div><em>{moment(new Date(reminder.duedate)).fromNow()}</em></div>
+            </div>
+            <div
+              className="list-item delete-button"
+              onClick={() => this.props.remove(reminder)}
+              >
+              &times;
+            </div>
+          </li>
+        </CSSTransition>
       )});
     return (
       <div className="reminders-list">
-        <ul className="list-group">
+        <TransitionGroup
+          component="ul"
+          className="list-group">
           {reminders}
-        </ul>
+        </TransitionGroup>
       </div>
     )
   }

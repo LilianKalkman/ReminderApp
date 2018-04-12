@@ -1,0 +1,21 @@
+.fade-enter {
+  background-color: green;
+  transform: translateY(100%);
+}
+
+.fade-enter-active {
+  background-color: rgb(174, 218, 158);
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+}
+
+.fade-exit {
+  transform: translateX(0);
+  background-color: rgb(242, 196, 193);
+}
+
+.fade-exit-active {
+  transform: translateX(100%);
+  background-color: red;
+  transition: all 0.5s ease-out;
+}
